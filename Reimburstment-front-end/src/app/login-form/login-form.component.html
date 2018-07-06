@@ -1,0 +1,16 @@
+<body>
+    <div class="createRoom">
+        <img src='http://www.asthmamd.org/images/icon_user_1.png' class="user">
+        <h2>Login</h2>
+        <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+          <p>Username</p>
+          <input type="text" name="username" ngModel placeholder="Enter Username">
+          <p>Password</p>
+          <input type="password" name="password" ngModel placeholder="Enter Password">
+          
+          <button type="submit">Login</button>
+          <!--a href="#">Forget Password</a--> 
+        </form>
+      </div>
+</body>
+
