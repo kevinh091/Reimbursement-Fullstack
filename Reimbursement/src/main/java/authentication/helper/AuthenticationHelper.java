@@ -10,7 +10,7 @@ public class AuthenticationHelper {
 		System.out.println(request.getRequestURI());
 		
 		switch(request.getRequestURI()) {
-		case "/Reimbursement/api/authentication":
+		case "/api/authentication":
 			LoginController.loginCheck(request,response);
 			break;
 		default:;

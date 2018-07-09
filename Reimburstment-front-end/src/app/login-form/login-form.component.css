@@ -3,20 +3,16 @@
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	width: 40%;
+	width: 400px;
 	height: auto;
 	transform: translate(-50%,-50%);
     overflow: auto;
 	padding: 40px 20px;
 	box-sizing: border-box;
-	background: rgba(0,0,0,.3);
-}
-
-.createRoom
-{
-	font-weight: bold;
+	background: rgba(0,0,0,.4);
 	color: #fff;
 }
+
 .user
 {
     width: 100px;
@@ -63,7 +59,7 @@ form
 {
 	margin: 0;
 	padding: 0 0 20px;
-	color: #cfcece;
+	color: #dbdbdb;
 	text-align: center;
 }
 .createRoom button[type="submit"]

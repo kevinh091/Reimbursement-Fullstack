@@ -44,6 +44,8 @@
   <filter-name>CorsFilter</filter-name>
   <url-pattern>/*</url-pattern>
 </filter-mapping>
+
+
 	<servlet>
 		<description></description>
 		<display-name>authentication</display-name>

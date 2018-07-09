@@ -1,20 +1,20 @@
 package user;
 
 public class User {
-	private int userId;
+	private transient int userId;
 	private String username;
-	private String password;
-	private String lastname;
+	private transient String password;
 	private String firstname;
+	private String lastname;
 	private String email;
 	private int userRole;
 	
-	public User(int i, String u, String p, String l, String f, String e, int r) {
+	public User(int i, String u, String p, String f, String l, String e, int r) {
 		userId =i;
 		username =u;
 		password =p;
-		lastname =u;
 		firstname =f;
+		lastname =l;
 		email =e;
 		userRole = r;
 	}
