@@ -19,7 +19,6 @@ public class LoginController {
 	public static void loginCheck(HttpServletRequest request, HttpServletResponse response) {
 		if(request.getMethod().equals("GET")) {
 			HttpSession session=request.getSession(false);
-			System.out.println("test point");
 			if(session ==null) {
 				System.out.println("session is null");
 				try {
