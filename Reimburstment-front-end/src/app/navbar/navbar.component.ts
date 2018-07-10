@@ -6,16 +6,18 @@ import {LoginService} from '../services/login.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {
-
+export class NavbarComponent implements OnInit{
   title:string = 'Reimbursement';
-  account: string;
   get login() {
     return this._login;
   }
 
   constructor(private _login :LoginService){  //invalid
     
+  }
+
+  async ngOnInit(){
+    await this._login.isLoggedIn();
   }
 
 }

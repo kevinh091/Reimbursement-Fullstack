@@ -10,11 +10,12 @@ import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 
+import authentication.master.Authentication;
 import services.ServicesImpl;
 import user.User;
 
 public class LoginController {
-	private static ServicesImpl service= new ServicesImpl();
+	private static ServicesImpl service= Authentication.service;
 
 	public static void loginCheck(HttpServletRequest request, HttpServletResponse response) {
 		if(request.getMethod().equals("GET")) {

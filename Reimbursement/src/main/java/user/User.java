@@ -19,7 +19,7 @@ public class User {
 		userRole = r;
 	}
 	
-	public int userId() {
+	public int getUserId() {
 		return userId;
 	}
 	public void setUserId(int userId) {

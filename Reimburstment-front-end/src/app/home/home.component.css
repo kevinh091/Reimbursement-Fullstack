@@ -1,0 +1,14 @@
+div{
+    left: calc(50% - 300px);
+    position: absolute;
+    width: 600px;
+}
+
+img{
+    width: 600px;
+    height: 450px;
+}
+
+blockquote{
+    text-align: left;
+}

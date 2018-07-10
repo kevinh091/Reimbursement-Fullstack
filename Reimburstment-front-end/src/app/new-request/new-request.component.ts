@@ -9,16 +9,11 @@ import {LoginService} from '../services/login.service';
 export class NewRequestComponent implements OnInit {
   loggedIn:boolean;
 
-  constructor(private loginService: LoginService) {
+  constructor(private _loginService: LoginService) {
   }
 
   async ngOnInit() {
-    if(await this.loginService.isLoggedIn()){
-      this.loggedIn=true;
-    }
-    else{
-      this.loggedIn=false;
-    }
+    await this._loginService.isLoggedIn();
+    this.loggedIn = this._loginService.user?true:false;
   }
-
 }

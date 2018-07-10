@@ -9,6 +9,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NewRequestComponent } from './new-request/new-request.component';
 import { MyRequestComponent } from './my-request/my-request.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { MyRequestComponent } from './my-request/my-request.component';
     LoginFormComponent,
     NavbarComponent,
     NewRequestComponent,
-    MyRequestComponent
+    MyRequestComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,7 @@ import { MyRequestComponent } from './my-request/my-request.component';
       {path: 'myrequest', component:MyRequestComponent},
       {path: 'newrequest', component:NewRequestComponent},
       {path: 'profile', component:LoginFormComponent},
-      {path: '', component:LoginFormComponent,pathMatch:'full'},
+      {path: '', component:HomeComponent,pathMatch:'full'},
       {path: '**', component:LoginFormComponent,pathMatch:'full'},
     ])
   ],
