@@ -19,14 +19,14 @@ export class LoginService {
   }
   
   
-  async login(loginForm) {
+  async login(username:string, password:string) {
     const res = await fetch('http://localhost:9005/api/Authentication/login', {
       method: 'POST',
       credentials: 'include',
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },
-      body: `${loginForm.value.username};${loginForm.value.password}`
+      body: `${username};${password}`
     });
     const js = await res.json();  //if login not successful, js.username is undefined
     if(typeof js.username!=='undefined'){
@@ -36,7 +36,7 @@ export class LoginService {
   }
 
   async logout(){
-    const res =await fetch('http://localhost:9005/api/Authentication/logout', {
+    await fetch('http://localhost:9005/api/Authentication/logout', {
       method: 'GET',
       credentials: 'include',
       mode:"cors"

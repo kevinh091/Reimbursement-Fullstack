@@ -11,11 +11,11 @@ import javax.servlet.http.HttpSession;
 import com.google.gson.Gson;
 
 import masters.Authentication;
-import services.ServicesImpl;
+import services.AuthenticationServicesImpl;
 import user.User;
 
 public class LoginController {
-	private static ServicesImpl service= Authentication.service;
+	private static AuthenticationServicesImpl service= Authentication.service;
 
 	public static void loginCheck(HttpServletRequest request, HttpServletResponse response) {
 		if(request.getMethod().equals("GET")) {
@@ -68,6 +68,7 @@ public class LoginController {
 				HttpSession session=request.getSession();  
 				session.setAttribute("username", username);
 				session.setAttribute("password", inputPassword);
+				session.setAttribute("userid", user.getUserId());
 				response.setContentType("application/json");
 				PrintWriter out;
 				try {

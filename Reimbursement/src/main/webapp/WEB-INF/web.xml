@@ -41,7 +41,6 @@
     <filter-name>CorsFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-
   <servlet>
     <description></description>
     <display-name>Authentication</display-name>
@@ -51,5 +50,15 @@
   <servlet-mapping>
     <servlet-name>Authentication</servlet-name>
     <url-pattern>/api/Authentication/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Request</display-name>
+    <servlet-name>Request</servlet-name>
+    <servlet-class>masters.Request</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Request</servlet-name>
+    <url-pattern>/api/Request/*</url-pattern>
   </servlet-mapping>
 </web-app>

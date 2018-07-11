@@ -112,7 +112,7 @@ public class DAOimpl implements DAO{
 	}
 
 	@Override
-	public int insertReimbursement(int amount, String description, Blob receipt, User author, int type) {
+	public int insertReimbursement(int amount, String description, Blob receipt, int author, int type) {
         String sql = 
         		" BEGIN "+
         		"INSERT_REIMBURSEMENT(?, ?, ?, ?, ?);" +
@@ -123,7 +123,7 @@ public class DAOimpl implements DAO{
 			ps.setInt(1, amount);
 			ps.setString(2, description);
 			ps.setBlob(3, receipt);
-			ps.setInt(4, author.getUserId());
+			ps.setInt(4, author);
 			ps.setInt(5, type);
 			return ps.executeUpdate();
 		} catch (SQLException e) {

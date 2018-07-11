@@ -10,6 +10,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { NewRequestComponent } from './new-request/new-request.component';
 import { MyRequestComponent } from './my-request/my-request.component';
 import { HomeComponent } from './home/home.component';
+import { LoginService } from './services/login.service';
+import { EmployeeRequestService } from './services/employee-request.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,7 @@ import { HomeComponent } from './home/home.component';
       {path: '**', component:HomeComponent,pathMatch:'full'},
     ])
   ],
-  providers: [],
+  providers: [LoginService,EmployeeRequestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,9 @@
+#holder{
+    text-align:left;
+    position: absolute;
+    width: 800px;
+    left: calc(50% - 300px);
+    top:20%;
+    padding: 20px;
+    background-color:rgba(100, 100, 100, .1);
+}

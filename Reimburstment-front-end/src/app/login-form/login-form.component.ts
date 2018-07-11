@@ -15,7 +15,7 @@ export class LoginFormComponent implements OnInit{
   }
 
   async onSubmit(loginForm:NgForm){
-    await this.loginService.login(loginForm);
+    await this.loginService.login(loginForm.value.username, loginForm.value.password);
     console.log(this.loginService.user);
   }
 }

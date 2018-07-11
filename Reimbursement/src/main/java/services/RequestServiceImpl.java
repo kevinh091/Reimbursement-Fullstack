@@ -5,25 +5,16 @@ import java.util.List;
 
 import dao.DAOimpl;
 import reimbursement.Reimbursement;
+import startup.Config;
 import user.User;
 
-public class ServicesImpl implements Services{
+public class RequestServiceImpl implements RequestService{
 	private DAOimpl dao;
 	
-	public ServicesImpl() {
-		dao= new DAOimpl();
+	public RequestServiceImpl() {
+		dao = Config.dao;
 	}
 	
-	@Override
-	public User getUser(String username) {
-		return dao.selectUser(username);
-	}
-
-	@Override
-	public User getUser(int id) {
-		return dao.selectUser(id);
-	}
-
 	@Override
 	public Reimbursement selectReimbursement(int id) {
 		return dao.selectReimbursement(id);
@@ -35,7 +26,7 @@ public class ServicesImpl implements Services{
 	}
 
 	@Override
-	public int insertReimbursement(int amount, String description, Blob receipt, User author, int type) {
+	public int insertReimbursement(int amount, String description, Blob receipt, int author, int type) {
 		return dao.insertReimbursement(amount, description, receipt, author, type);
 	}
 

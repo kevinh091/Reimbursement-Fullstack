@@ -6,12 +6,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import authentication.helper.AuthenticationHelper;
-import services.ServicesImpl;
+import helpers.AuthenticationHelper;
+import services.AuthenticationServicesImpl;
 
 public class Authentication extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	public static ServicesImpl service= new ServicesImpl();
+	public static AuthenticationServicesImpl service= new AuthenticationServicesImpl();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException 
