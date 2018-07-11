@@ -20,4 +20,8 @@ export class NavbarComponent implements OnInit{
     await this._login.isLoggedIn();
   }
 
+  async logout(){
+    await this._login.logout();
+  }
+
 }

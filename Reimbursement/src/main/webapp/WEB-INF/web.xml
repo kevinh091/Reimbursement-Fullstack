@@ -46,10 +46,10 @@
     <description></description>
     <display-name>Authentication</display-name>
     <servlet-name>Authentication</servlet-name>
-    <servlet-class>authentication.master.Authentication</servlet-class>
+    <servlet-class>masters.Authentication</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Authentication</servlet-name>
-    <url-pattern>/api/Authentication</url-pattern>
+    <url-pattern>/api/Authentication/*</url-pattern>
   </servlet-mapping>
 </web-app>

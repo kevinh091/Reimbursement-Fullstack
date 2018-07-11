@@ -1,7 +1,7 @@
-<div *ngIf="loggedIn">
+<div *ngIf="loginService.user">
 
 </div>
-  
-  <div *ngIf="!loggedIn">
-    You must login first!
-  </div>
+
+<div *ngIf="!loginService.user">
+  You must login first!
+</div>

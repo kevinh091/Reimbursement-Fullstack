@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 
-import authentication.master.Authentication;
+import masters.Authentication;
 import services.ServicesImpl;
 import user.User;
 

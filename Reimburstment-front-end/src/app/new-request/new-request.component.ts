@@ -7,13 +7,14 @@ import {LoginService} from '../services/login.service';
   styleUrls: ['./new-request.component.css']
 })
 export class NewRequestComponent implements OnInit {
-  loggedIn:boolean;
+  get loginService(){
+    return this._loginService;
+  }
 
   constructor(private _loginService: LoginService) {
   }
 
   async ngOnInit() {
     await this._loginService.isLoggedIn();
-    this.loggedIn = this._loginService.user?true:false;
   }
 }

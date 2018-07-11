@@ -30,7 +30,7 @@ import { HomeComponent } from './home/home.component';
       {path: 'newrequest', component:NewRequestComponent},
       {path: 'profile', component:LoginFormComponent},
       {path: '', component:HomeComponent,pathMatch:'full'},
-      {path: '**', component:LoginFormComponent,pathMatch:'full'},
+      {path: '**', component:HomeComponent,pathMatch:'full'},
     ])
   ],
   providers: [],

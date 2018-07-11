@@ -1,4 +1,4 @@
-package authentication.master;
+package masters;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
