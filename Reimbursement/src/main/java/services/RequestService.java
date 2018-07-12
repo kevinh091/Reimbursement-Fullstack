@@ -10,8 +10,9 @@ public interface RequestService {
 	Reimbursement selectReimbursement(int id);
 	//if the user is an employee, return all the reims he requested
 	//if the user is a manager, return all reims he solved
-	List<Reimbursement> selectReimbursement(User user); 	
+	List<Reimbursement> listReimbursements(int id); 	
+	List<Reimbursement> managerReimbursements(String input);
 	
 	int insertReimbursement(int amount, String description, Blob receipt, int author, int type);
-	int updateReimbursement(int id, User resovler, Integer status);
+	int updateReimbursement(int id, int resovler, int status);
 }

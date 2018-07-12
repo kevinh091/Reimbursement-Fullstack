@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {LoginService} from '../services/login.service';
+import { LoginService } from '../services/login.service';
+import { EmployeeRequestService } from '../services/employee-request.service';
 
 @Component({
   selector: 'app-my-request',
@@ -7,14 +8,21 @@ import {LoginService} from '../services/login.service';
   styleUrls: ['./my-request.component.css']
 })
 export class MyRequestComponent implements OnInit {
-  get loginService(){
+  get loginService() {
     return this._loginService;
   }
 
-  constructor(private _loginService: LoginService) {
+  get requestService(){
+    return this._requestService;
+  }
+
+  constructor(private _loginService: LoginService, private _requestService: EmployeeRequestService) {
   }
 
   async ngOnInit() {
     await this._loginService.isLoggedIn();
+    if (this._loginService.user) {
+      await this._requestService.getMyrequests();
+    }
   }
 }

@@ -10,13 +10,13 @@ public class Reimbursement {
 	private Date resolved;
 	private String description;
 	private Blob receipt;
-	private int author;
-	private int resolver;
+	private String author;
+	private String resolver;
 	private int status;
 	private int type;
 	
 	public Reimbursement(int id,float amount,Date submitted,Date resolved,String description,
-			Blob receipt,int author,int resolver,int status, int type) 
+			Blob receipt,String author,String resolver,int status, int type) 
 	{
 		this.id = id;
 		this.amount = amount;
@@ -30,7 +30,6 @@ public class Reimbursement {
 		this.type = type;
 		
 	}
-	
 	public int getId() {
 		return id;
 	}
@@ -67,16 +66,16 @@ public class Reimbursement {
 	public void setReceipt(Blob receipt) {
 		this.receipt = receipt;
 	}
-	public int getAuthor() {
+	public String getAuthor() {
 		return author;
 	}
-	public void setAuthor(int author) {
+	public void setAuthor(String author) {
 		this.author = author;
 	}
-	public int getResolver() {
+	public String getResolver() {
 		return resolver;
 	}
-	public void setResolver(int resolver) {
+	public void setResolver(String resolver) {
 		this.resolver = resolver;
 	}
 	public int getStatus() {

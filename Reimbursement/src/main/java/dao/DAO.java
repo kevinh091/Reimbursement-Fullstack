@@ -12,8 +12,10 @@ public interface DAO {
 	Reimbursement selectReimbursement(int id);
 	//if the user is an employee, return all the reims he requested
 	//if the user is a manager, return all reims he solved
-	List<Reimbursement> selectReimbursement(User user); 	
+	List<Reimbursement> listReimbursements(int id);
+	
 	
 	int insertReimbursement(int amount, String description, Blob receipt, int author, int type);
-	int updateReimbursement(int id, User resovler, Integer status); // status: 1 pending; 2 approved; 3 denied
+	int updateReimbursement(int id, int resovler, int status); // status: 1 pending; 2 approved; 3 denied
+	List<Reimbursement> managerReimbursements(String input);
 }

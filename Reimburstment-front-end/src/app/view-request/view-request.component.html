@@ -14,10 +14,14 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor='let temp of requestService.requestsHoler'>
+              <tr *ngFor="let temp of requestService.requestsHoler" (mouseenter)="highlight($event)" (mouseleave)="dehighlight($event)">
                 <td>{{temp.id}}</td>
                 <td>${{temp.amount}}</td>
                 <td>{{temp.status}}</td>
+                <td>
+                  <button type="button" class="btn btn-success">Approve</button>
+                  <button type="button" class="btn btn-danger">Deny</button>
+                </td>
               </tr>
             </tbody>
           </table>

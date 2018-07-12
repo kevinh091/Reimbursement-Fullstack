@@ -5,7 +5,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import authentication.controller.LoginController;
 import authentication.controller.LogoutController;
+import request.controller.MyrequestController;
 import request.controller.NewrequestController;
+import request.controller.ViewrequestController;
 
 public class RequestHelper {
 	public static void process(HttpServletRequest request, HttpServletResponse response) {
@@ -16,7 +18,13 @@ public class RequestHelper {
 			NewrequestController.newRequest(request, response);
 			break;
 		case "/api/Request/my":
-			LogoutController.logout(request,response);
+			MyrequestController.getMyRequests(request,response);
+			break;
+		case "/api/Request/manager":
+			ViewrequestController.viewRequests(request, response);
+			break;
+		case "/api/Request/update":
+			ViewrequestController.updateRequest(request, response);
 			break;
 		default:;
 		}

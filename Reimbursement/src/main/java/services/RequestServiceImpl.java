@@ -21,8 +21,13 @@ public class RequestServiceImpl implements RequestService{
 	}
 
 	@Override
-	public List<Reimbursement> selectReimbursement(User user) {
-		return dao.selectReimbursement(user);
+	public List<Reimbursement> listReimbursements(int id) {
+		return dao.listReimbursements(id);
+	}
+	
+	@Override
+	public List<Reimbursement> managerReimbursements(String input){
+		return dao.managerReimbursements(input);
 	}
 
 	@Override
@@ -31,7 +36,7 @@ public class RequestServiceImpl implements RequestService{
 	}
 
 	@Override
-	public int updateReimbursement(int id, User resovler, Integer status) {
+	public int updateReimbursement(int id, int resovler, int status) {
 		return dao.updateReimbursement(id, resovler, status);
 	}
 	

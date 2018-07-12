@@ -3,13 +3,20 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class EmployeeRequestService {
+export class ManagerRequestService {
   requestsHoler:Array<any>;
 
   constructor() { }
 
-  async getMyrequests(){
-    const res = await fetch('http://localhost:9005/api/Request/my', {credentials: 'include'});
+  async viewRequest(input:string) {
+    const res = await fetch('http://localhost:9005/api/Request/manager', {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+      },
+      body: input
+    });
     const js:Array<any> = await res.json();
     this.requestsHoler = js.map(input=>{
       switch(input.status){
@@ -22,18 +29,16 @@ export class EmployeeRequestService {
     console.log(this.requestsHoler);
   }
 
-  async newRequest(amount:number, description:string, type:number) {
-    const res = await fetch('http://localhost:9005/api/Request/new', {
+  async updateRequest(reimbId:number, status:number) {
+    const res = await fetch('http://localhost:9005/api/Request/update', {
       method: 'POST',
       credentials: 'include',
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },
-      body: JSON.stringify({"amount":amount,"description":description,"type":type})
+      body: `${reimbId};${status}`
     });
-    const js = await res.text();  //if login not successful, js.username is undefined
-    if( js ==='yes'){
-      console.log('successed');
-    }
+    const js:string = await res.text();
+    console.log(js);
   }
 }

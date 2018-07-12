@@ -12,6 +12,8 @@ import { MyRequestComponent } from './my-request/my-request.component';
 import { HomeComponent } from './home/home.component';
 import { LoginService } from './services/login.service';
 import { EmployeeRequestService } from './services/employee-request.service';
+import {ManagerRequestService } from './services/manager-request.service';
+import { ViewRequestComponent } from './view-request/view-request.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { EmployeeRequestService } from './services/employee-request.service';
     NavbarComponent,
     NewRequestComponent,
     MyRequestComponent,
-    HomeComponent
+    HomeComponent,
+    ViewRequestComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,12 +33,13 @@ import { EmployeeRequestService } from './services/employee-request.service';
       {path: 'login', component:LoginFormComponent},
       {path: 'myrequest', component:MyRequestComponent},
       {path: 'newrequest', component:NewRequestComponent},
+      {path: 'viewrequest', component:ViewRequestComponent},
       {path: 'profile', component:LoginFormComponent},
       {path: '', component:HomeComponent,pathMatch:'full'},
       {path: '**', component:HomeComponent,pathMatch:'full'},
     ])
   ],
-  providers: [LoginService,EmployeeRequestService],
+  providers: [LoginService,EmployeeRequestService,ManagerRequestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

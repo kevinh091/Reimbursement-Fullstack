@@ -44,6 +44,19 @@ public class LoginController {
 
 
 		if(request.getMethod().equals("POST")) {
+			HttpSession testSession=request.getSession(false); //user already logged in
+			if(testSession!=null) {
+				PrintWriter out;
+				try {
+					out = response.getWriter();
+					out.print("{}");
+					out.flush();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				return;
+			}
+			
 			final StringBuilder builder = new StringBuilder();
 			String body = null;
 			try (BufferedReader reader = request.getReader()) {  //because it's a post, read body
@@ -69,6 +82,7 @@ public class LoginController {
 				session.setAttribute("username", username);
 				session.setAttribute("password", inputPassword);
 				session.setAttribute("userid", user.getUserId());
+				session.setAttribute("userrole", user.getUserRole());
 				response.setContentType("application/json");
 				PrintWriter out;
 				try {
