@@ -1,0 +1,12 @@
+th{
+    text-align: center;
+}
+
+.actions{
+    height:30px;
+    font-size: 14px;
+    margin-left:5px;
+    margin-top: -5px;
+    margin-bottom: -5px;
+    padding: 0px;
+}

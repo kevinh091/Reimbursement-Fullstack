@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
+
 import com.google.gson.Gson;
 
 import masters.Authentication;
@@ -16,8 +18,11 @@ import user.User;
 
 public class LoginController {
 	private static AuthenticationServicesImpl service= Authentication.service;
+	private final static Logger logger = Logger.getLogger(LoginController.class);
 
 	public static void loginCheck(HttpServletRequest request, HttpServletResponse response) {
+		logger.info("yo");
+		System.out.println("yo1");
 		if(request.getMethod().equals("GET")) {
 			HttpSession session=request.getSession(false);
 			if(session ==null) {
@@ -77,6 +82,7 @@ public class LoginController {
 			User user = service.getUser(username);
 			System.out.println(username);
 			if(user!=null && user.getPassword().equals(inputPassword)) {  // login successful
+				logger.info(username+"login successful");
 				System.out.println("yes");
 				HttpSession session=request.getSession();  
 				session.setAttribute("username", username);
@@ -94,6 +100,7 @@ public class LoginController {
 				}
 			}
 			else {  //login failed
+				logger.info("login failed");
 				response.setContentType("application/json");
 				PrintWriter out;
 				try {

@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.log4j.Logger;
 
 import reimbursement.Reimbursement;
 import user.User;
@@ -21,6 +22,7 @@ public class DAOimpl implements DAO{
 	           e.printStackTrace();
 	       }
 	   }
+	public final static Logger logger = Logger.getLogger(DAOimpl.class);
     private static String db_url = "jdbc:oracle:thin:@revaturedatabase.cgfxycwbhqwa.us-east-2.rds.amazonaws.com:1521:ORCL";
     private static String db_username = "reimburst_database";
     private static String db_password = "q561312665";
@@ -99,8 +101,8 @@ public class DAOimpl implements DAO{
             ResultSet rs = ps.executeQuery();
             
             
-            String authorUsername = selectUser(rs.getInt(7)).getUsername();
-            String resolverUsername = selectUser(rs.getInt(8)).getUsername();
+            User authorUsername = selectUser(rs.getInt(7));
+            User resolverUsername = selectUser(rs.getInt(8));
             
             reimbursement = new Reimbursement(rs.getInt(1), rs.getFloat(2),rs.getDate(3),rs.getDate(4), rs.getString(5),
             			rs.getBlob(6), authorUsername,resolverUsername,rs.getInt(9),rs.getInt(10));
@@ -130,8 +132,8 @@ public class DAOimpl implements DAO{
             
             
             while(rs.next()) {
-            String authorUsername = selectUser(rs.getInt(7)).getUsername();
-            String resolverUsername = selectUser(rs.getInt(8)).getUsername();
+            User authorUsername = selectUser(rs.getInt(7));
+            User resolverUsername = selectUser(rs.getInt(8));
             reimbursement.add(new Reimbursement(rs.getInt(1), rs.getFloat(2),rs.getDate(3),rs.getDate(4), rs.getString(5),
             			rs.getBlob(6), authorUsername,resolverUsername,rs.getInt(9),rs.getInt(10)));
             }
@@ -161,8 +163,8 @@ public class DAOimpl implements DAO{
             ResultSet rs = ps.executeQuery();
             
             while(rs.next()) {
-            String authorUsername = selectUser(rs.getInt(7)).getUsername();
-            String resolverUsername = selectUser(rs.getInt(8)).getUsername();
+            User authorUsername = selectUser(rs.getInt(7));
+            User resolverUsername = selectUser(rs.getInt(8));
             reimbursement.add(new Reimbursement(rs.getInt(1), rs.getFloat(2),rs.getDate(3),rs.getDate(4), rs.getString(5),
             			rs.getBlob(6), authorUsername,resolverUsername,rs.getInt(9),rs.getInt(10)));
             }

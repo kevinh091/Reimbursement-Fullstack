@@ -1,5 +1,5 @@
 <div *ngIf="loginService.user">
-    <div class='panel panel-primary' style="text-align: left;">
+    <div class='panel panel-primary'>
         <div class='panel-heading'>
           My Requests
         </div>
@@ -8,19 +8,32 @@
           <table class='table'>
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Amount</th>
-                <th>Status</th>
+                <th (click)="sort('id')">ID</th>
+                <th (click)="sort('author')">Author</th>
+                <th (click)="sort('amount')">Amount</th>
+                <th (click)="sort('submitted')">Date Created</th>
+                <th>Description</th>
+                <th (click)="sort('type')">Type</th>
+                <th>Date Resolved</th>
+                <th>Resolver</th>
+                <th (click)="sort('status')">Status</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let temp of requestService.requestsHoler" (mouseenter)="highlight($event)" (mouseleave)="dehighlight($event)">
                 <td>{{temp.id}}</td>
+                <td>{{temp.author.firstname}} {{temp.author.lastname}}</td>
                 <td>${{temp.amount}}</td>
+                <td>{{temp.submitted}}</td>
+                <td><button (click)="description(temp.description)">Description</button></td>
+                <td>{{temp.type}}</td>
+                <td>{{temp.resolved}}</td>
+                <td>{{temp.resolver.firstname}} {{temp.resolver.lastname}}</td>
                 <td>{{temp.status}}</td>
                 <td>
-                  <button type="button" class="btn btn-success">Approve</button>
-                  <button type="button" class="btn btn-danger">Deny</button>
+                  <button type="button" class="btn btn-success actions" (click)="approveDeny($event,temp.id,2)">Approve</button>
+                  <button type="button" class="btn btn-danger actions" (click)="approveDeny($event,temp.id,3)">Deny</button>
                 </td>
               </tr>
             </tbody>
@@ -28,6 +41,8 @@
         </div>
       
       </div>
+      <app-description-dialog *ngIf="openDescription" [message]="message" (messageEvent)="receiveMessage($event)">
+        </app-description-dialog>
 </div>
 
 <div *ngIf="!loginService.user">

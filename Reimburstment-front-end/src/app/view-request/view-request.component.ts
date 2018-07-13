@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../services/login.service';
 import {ManagerRequestService } from '../services/manager-request.service';
+import { DescriptionDialogComponent } from '../description-dialog/description-dialog.component';
 
 @Component({
   selector: 'app-view-request',
@@ -10,6 +11,8 @@ import {ManagerRequestService } from '../services/manager-request.service';
 
 export class ViewRequestComponent implements OnInit {
   hoveredIndex:number;
+  openDescription:boolean;
+  message:string;
   get loginService() {
     return this._loginService;
   }
@@ -18,14 +21,22 @@ export class ViewRequestComponent implements OnInit {
     return this._requestService;
   }
 
-  constructor(private _loginService: LoginService, private _requestService: ManagerRequestService) {
+  constructor(private _loginService: LoginService, private _requestService: ManagerRequestService,
+    public dialog:DescriptionDialogComponent) {
   }
 
   async ngOnInit() {
     await this._loginService.isLoggedIn();
     if (this._loginService.user) {
-      await this._requestService.viewRequest('1');
+      await this._requestService.viewRequest('*');
     }
+  }
+  description(des:string){
+    this.message = des;
+    this.openDescription = true;
+  }
+  receiveMessage(event) {
+    this.openDescription = false;
   }
 
   highlight(event:MouseEvent){
@@ -35,7 +46,14 @@ export class ViewRequestComponent implements OnInit {
     event.srcElement.removeAttribute("style");
   }
 
-  go(){
-    this._requestService.updateRequest(102,2);
+  approveDeny(table:MouseEvent,reimbId:number, status:number){
+    //console.log(reimbId,status);
+    if(this._requestService.updateRequest(reimbId,status)){
+      table.srcElement.parentElement.parentElement.remove();
+    }
+  }
+
+  sort(input){
+    this._requestService.sort(input);
   }
 }

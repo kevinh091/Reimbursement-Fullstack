@@ -1,0 +1,7 @@
+.model{
+    width: 660px;
+    position: absolute;
+    top:20%;
+    left:20%;
+    z-index: 10;
+}

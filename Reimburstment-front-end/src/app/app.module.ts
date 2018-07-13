@@ -14,6 +14,7 @@ import { LoginService } from './services/login.service';
 import { EmployeeRequestService } from './services/employee-request.service';
 import {ManagerRequestService } from './services/manager-request.service';
 import { ViewRequestComponent } from './view-request/view-request.component';
+import { DescriptionDialogComponent } from './description-dialog/description-dialog.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ViewRequestComponent } from './view-request/view-request.component';
     MyRequestComponent,
     HomeComponent,
     ViewRequestComponent,
+    DescriptionDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,7 @@ import { ViewRequestComponent } from './view-request/view-request.component';
       {path: '**', component:HomeComponent,pathMatch:'full'},
     ])
   ],
-  providers: [LoginService,EmployeeRequestService,ManagerRequestService],
+  providers: [LoginService,EmployeeRequestService,ManagerRequestService,DescriptionDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

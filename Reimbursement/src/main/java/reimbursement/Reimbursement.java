@@ -3,6 +3,8 @@ package reimbursement;
 import java.sql.Blob;
 import java.util.Date;
 
+import user.User;
+
 public class Reimbursement {
 	private int id;
 	private float amount;
@@ -10,13 +12,13 @@ public class Reimbursement {
 	private Date resolved;
 	private String description;
 	private Blob receipt;
-	private String author;
-	private String resolver;
+	private User author;
+	private User resolver;
 	private int status;
 	private int type;
 	
 	public Reimbursement(int id,float amount,Date submitted,Date resolved,String description,
-			Blob receipt,String author,String resolver,int status, int type) 
+			Blob receipt,User author,User resolver,int status, int type) 
 	{
 		this.id = id;
 		this.amount = amount;
@@ -66,16 +68,16 @@ public class Reimbursement {
 	public void setReceipt(Blob receipt) {
 		this.receipt = receipt;
 	}
-	public String getAuthor() {
+	public User getAuthor() {
 		return author;
 	}
-	public void setAuthor(String author) {
+	public void setAuthor(User author) {
 		this.author = author;
 	}
-	public String getResolver() {
+	public User getResolver() {
 		return resolver;
 	}
-	public void setResolver(String resolver) {
+	public void setResolver(User resolver) {
 		this.resolver = resolver;
 	}
 	public int getStatus() {
