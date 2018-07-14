@@ -17,7 +17,7 @@ public class Config implements ServletContextListener {
     public void contextInitialized(ServletContextEvent event) {
     	// Do your thing during webapp's startup.
     	try {
-			System.setOut(new PrintStream(new FileOutputStream("~/reimbursement.log")));
+			System.setOut(new PrintStream(new FileOutputStream("~/reimbursement.log",true)));
 			System.out.println("e");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

@@ -46,10 +46,11 @@ export class ViewRequestComponent implements OnInit {
     event.srcElement.removeAttribute("style");
   }
 
-  approveDeny(table:MouseEvent,reimbId:number, status:number){
+  approveDeny(table:MouseEvent,reimbId, status:number){
     //console.log(reimbId,status);
-    if(this._requestService.updateRequest(reimbId,status)){
+    if(this._requestService.updateRequest(reimbId.id,status)){
       table.srcElement.parentElement.parentElement.remove();
+      reimbId.status='Approved';
     }
   }
 

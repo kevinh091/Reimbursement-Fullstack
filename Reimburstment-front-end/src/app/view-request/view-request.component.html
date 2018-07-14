@@ -32,8 +32,10 @@
                 <td>{{temp.resolver.firstname}} {{temp.resolver.lastname}}</td>
                 <td>{{temp.status}}</td>
                 <td>
-                  <button type="button" class="btn btn-success actions" (click)="approveDeny($event,temp.id,2)">Approve</button>
-                  <button type="button" class="btn btn-danger actions" (click)="approveDeny($event,temp.id,3)">Deny</button>
+                  <div *ngIf="temp.status==='Pending'">
+                  <button type="button" class="btn btn-success actions" (click)="approveDeny($event,temp,2)">Approve</button>
+                  <button type="button" class="btn btn-danger actions" (click)="approveDeny($event,temp,3)">Deny</button>
+                  </div>
                 </td>
               </tr>
             </tbody>
